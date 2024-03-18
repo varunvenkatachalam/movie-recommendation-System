@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    .navbar {
+      background-color: #212529;
+    }
+    .nav-link {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .form-control,
+    .btn {
+      background-color: #343a40;
+      border-color: #6c757d;
+      color: #fff;
+    }
+    .form-control:focus,
+    .btn:focus {
+      background-color: #495057;
+      border-color: #6c757d;
+      color: #fff;
+    }
+    .btn-outline-success {
+      color: #28a745;
+      border-color: #28a745;
+    }
+    .btn-outline-success:hover,
+    .btn-outline-success:focus {
+      color: #fff;
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+    .card {
+        width: 750px;
+        margin-top: 60px;
+        margin-left: 250px;
+        max-width: 950px;
+        border: none;
+        box-shadow: 0px 2px 10px rgba(17, 2, 236, 0.5);
+    }
+
+    .card-img {
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    .card-img-overlay {
+        background: rgba(0, 0, 0, 0.5); 
+        color: white;
+    }
+    .bi-person-circle {
+      color: white;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'MR'%}" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: blue;">MR</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'recommendation'%}">Recommendations</a>
+        </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Genre
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #888;">
+                    <a class="dropdown-item" href="{% url 'action'%}">Action</a>
+                    <a class="dropdown-item" href="{% url 'love'%}">Love</a>
+                    <a class="dropdown-item" href="{% url 'comedy'%}">Comedy</a>
+                    <a class="dropdown-item" href="{% url 'horror'%}">Horror</a>
+                    <a class="dropdown-item" href="{% url 'fantasy'%}">Fantasy</a>
+                    <a class="dropdown-item" href="{% url 'sci-fi'%}">Sci-fi</a>
+                    <a class="dropdown-item" href="{% url 'mystery'%}">Mystery</a>
+                    <a class="dropdown-item" href="{% url 'historical'%}">Historical</a>
+                  </div>
+              </li>
+            </ul>
+          </div>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <i onclick="redirect()" class="bi bi-person-circle"></i>
+        </li>
+    </ul>
+    
+    </div>
+  </div>
+</nav>
+
+<div class="card text-bg-dark">
+    <img src="https://img.freepik.com/free-photo/movie-background-collage_23-2149876007.jpg?size=626&ext=jpg&ga=GA1.1.1057297143.1710778700&semt=ais" class="card-img" alt="...">
+    <div class="card-img-overlay">
+        <h1 class="card-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: blue; opacity: 0.9; margin-left: 20px;">Movie Recommendation Server</h1>
+        
+        <form class="form-inline my-2 my-lg-0" style="margin-top: 20px; margin-left: 20px;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 500px;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div>
+            <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:larger; opacity: 0.7; margin: 80px;">
+                "Discover your next favorite film with our movie search tool. Explore a vast collection of titles spanning various genres, from action-packed blockbusters to heartfelt dramas, all at your fingertips."
+            </p>
+        </div>
+        
+        <button style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; margin-top: 20px;">Watch Movies</button>
+    </div>
+</div>
+
+
+  <div>
+    <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:larger; opacity: 0.7; margin: 50px;">
+        Our Movie Recommendation Server has garnered rave reviews from users and critics alike for its exceptional ability to deliver personalized movie suggestions with pinpoint accuracy. One of the standout features of our product is its sophisticated algorithm, which continuously learns from user interactions to refine recommendations, ensuring a highly tailored and relevant viewing experience.</p>
+      <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  font-size:larger; opacity: 0.7;  margin: 50px;">Users have praised the intuitive interface, which makes it effortless to input preferences and navigate through recommendations. The server's ability to cater to diverse tastes and preferences has been particularly lauded, with many users reporting the discovery of hidden gems and previously overlooked titles.</p>
+      <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:larger; opacity: 0.7; margin: 50px;">Critics have applauded the server's robust data analysis capabilities, noting its ability to consider various factors such as genre preferences, viewing history, and demographic information to generate insightful recommendations. Additionally, the server's seamless integration with streaming platforms and comprehensive movie database have been commended for enhancing the overall user experience.</p>
+      <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:larger; opacity: 0.7; margin: 50px;">Furthermore, reviewers have highlighted the server's potential to revolutionize the way people discover and enjoy movies, citing its role in fostering a deeper appreciation for cinema and expanding horizons beyond mainstream titles.</p>
+      <p class="text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:larger; opacity: 0.7; margin: 50px;">Overall, our Movie Recommendation Server has received widespread acclaim for its innovation, accuracy, and user-centric approach, solidifying its position as a leading solution in the realm of personalized content recommendation.</p>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function redirect()
+    {
+        window.location.href = "profile";
+    }
+</script>
+
+</body>
+</html>
